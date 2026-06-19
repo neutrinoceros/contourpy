@@ -108,6 +108,12 @@ config-settings.setup-args = [
     "-Dcpp_link_args=['ucrt.lib','vcruntime.lib','/nodefaultlib:libucrt.lib','/nodefaultlib:libvcruntime.lib']"
 ]
 
+[tool.cibuildwheel.linux]
+environment-pass = [
+    "PIP_PRE",
+    "PIP_EXTRA_INDEX_URL",
+]
+
 [[tool.cibuildwheel.overrides]]
 select = "*riscv64*"
 # numpy does not provide riscv64 wheel yet. See https://github.com/numpy/numpy/issues/30216
